@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import logo from './happy.png';
 import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
+class App extends Component {
+
+  state = {
+    class: "logo "
+  }
+
+  handleMouseOver = () => {
+    this.setState ({
+      class: "logo spin"
+    })
+  }
+
+  handleMouseOut = () => {
+    this.setState ({
+      class: "logo "
+    })
+  }
+
+  render() {
+
+    return(
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
+        {this.state.class === "logo spin" ?
+        <h2> MYSELF, AFTER
+        THE INTERVIEW WITH YOU: </h2>
+        : null
+        }
+        <br/><br/>
+        <img src={logo} className={this.state.class} alt="logo"/>
+        <br/><br/><br/><br/>
+        {this.state.class === "logo spin" ?
+        <h1> THANK YOU! </h1>
+        : null
+        }
+        </div>
       </header>
     </div>
-  );
+  )}
+
 }
 
 export default App;
