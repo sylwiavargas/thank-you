@@ -29,7 +29,7 @@ class App extends Component {
         {this.state.class === "logo spin" ?
         <h2> MYSELF, AFTER
         THE INTERVIEW WITH YOU: </h2>
-        : null
+        : <h1> Tickle Spongebob </h2>
         }
         <br/><br/>
         <img src={logo} className={this.state.class} alt="logo"/>
